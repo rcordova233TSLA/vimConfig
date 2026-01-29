@@ -29,8 +29,26 @@ Plug 'https://github.com/weirongxu/plantuml-previewer.vim.git'
 Plug 'preservim/vim-markdown'
 Plug 'https://github.com/grepsuzette/vim-sum.git'
 Plug 'https://github.com/gcmt/taboo.vim.git'
+Plug 'https://github.com/jiangmiao/auto-pairs.git'
 call plug#end()
 
+"Plugin settings
+
+"YCM settings
+let g:ycm_auto_trigger=1
+let g:ycm_enable_semantic_highlighting=1
+" exec 'let g:ycm_auto_trigger'
+" exec 'let g:ycm_enable_semantic_highlighting=1'
+
+" Enable PlantUML support in the preview
+let g:mkdp_plantuml = 1"
+let g:markdown_fenced_languages = ['plantuml']
+
+"VimSum settings
+nmap <Leader>a <Plug>VimSumOperatorPending
+vmap <Leader>a <Plug>VimSumVisual
+" Taboo tab settings
+set sessionoptions+=tabpages,globals
 
 "Functions
 function! TrimTrailingWhiteSpace() abort
@@ -79,20 +97,3 @@ set wildmenu
 "Mouse scrolling
 set mouse=a
 
-"Plugin settings
-
-"YCM settings
-let g:ycm_auto_trigger=1
-let g:ycm_enable_semantic_highlighting=1
-" exec 'let g:ycm_auto_trigger'
-" exec 'let g:ycm_enable_semantic_highlighting=1'
-
-" Enable PlantUML support in the preview
-let g:mkdp_plantuml = 1"
-let g:markdown_fenced_languages = ['plantuml']
-
-"VimSum settings
-nmap <Leader>a <Plug>VimSumOperatorPending
-vmap <Leader>a <Plug>VimSumVisual
-" Taboo tab settings
-set sessionoptions+=tabpages,globals
