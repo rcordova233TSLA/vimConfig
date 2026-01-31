@@ -8,7 +8,6 @@ set cursorline
 " Tags and cscope
 set tags=./tags;,tags;
 set csre
-vnoremap <leader>b y:tab cs find s <C-r>"<CR>
 
 " Native plugins
 packloadall
@@ -30,6 +29,7 @@ Plug 'preservim/vim-markdown'
 Plug 'https://github.com/grepsuzette/vim-sum.git'
 Plug 'https://github.com/gcmt/taboo.vim.git'
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
+Plug 'https://github.com/tpope/vim-surround.git' 
 call plug#end()
 
 "Plugin settings
@@ -82,6 +82,14 @@ vnoremap <C-c> "+y
 snoremap <C-c> "+y
 " Map ; to launch FZF file find" 
 map ; :Files<CR>
+" cscope 
+"Use leader b for new tabs
+nnoremap <leader>b :tab cs find s <C-R>=expand("<cword>")<CR><CR>
+vnoremap <leader>b y:tab cs find s <C-r>"<CR>
+" Use Ctrl S to launch cs find s
+nnoremap <C-s> :cs find s <C-R>=expand("<cword>")<CR><CR>
+vnoremap <C-s> y:cs find s <C-r>"<CR>
+
 " Enable local vimrcs for local project options
 set exrc      " Enable reading of local .vimrc files
 set secure    " Use 'secure' mode to disable potentially unsafe commands
@@ -96,4 +104,7 @@ set wildmenu
 
 "Mouse scrolling
 set mouse=a
+
+" Macros
+let @q = 'i|j'
 
