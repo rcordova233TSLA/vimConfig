@@ -1,27 +1,24 @@
 set number
 colorscheme desert
 set nocompatible
-packloadall
+syntax on
 
 set nowrap
 set cursorline
 " Tags and cscope
 set tags=./tags;,tags;
 set csre
-
 " Native plugins
 packloadall
 
 "vim plug
 call plug#begin()
-
 " List your plugins here
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'Valloric/YouCompleteMe'
-
 Plug 'https://github.com/aklt/plantuml-syntax'
 Plug 'https://github.com/tyru/open-browser.vim.git'
 Plug 'https://github.com/weirongxu/plantuml-previewer.vim.git'
@@ -29,11 +26,20 @@ Plug 'preservim/vim-markdown'
 Plug 'https://github.com/grepsuzette/vim-sum.git'
 Plug 'https://github.com/gcmt/taboo.vim.git'
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
-Plug 'https://github.com/tpope/vim-surround.git' 
+Plug 'https://github.com/tpope/vim-surround.git'
+Plug 'https://github.com/tpope/vim-commentary.git' 
+Plug 'preservim/tagbar'
+Plug 'vim-airline/vim-airline' 
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 "Plugin settings
 
+" Vim Airline
+" Turn off all extensions. 
+" There was slow down typing when in insert mode and ycm autocomplete
+" Safer to turn off all extensions and add back by one as needed
+let g:airline_extensions = []
 "YCM settings
 let g:ycm_auto_trigger=1
 let g:ycm_enable_semantic_highlighting=1
@@ -69,26 +75,30 @@ endfunction
 
 " Define a custom command to call the function easily
 command! TrimSpaces call TrimTrailingWhiteSpace()
-
+command! RemoveDos %s//\r/g
 
 " Maps
 " Enter adds a new line below.
-map <Enter> o<ESC>
+map <leader>o o<ESC>
 " Shift-Enter adds a new line above.
-map <S-Enter> O<ESC>
+map <leader>O O<ESC>
+" File scope autocomplete
+"inoremap <C-k> <C-X><C-N>
+
 " Map Ctrl+c to yank to the system clipboard
 nnoremap <C-c> "+y
 vnoremap <C-c> "+y
 snoremap <C-c> "+y
-" Map ; to launch FZF file find" 
+" Map ; to launch FZF file find"
 map ; :Files<CR>
-" cscope 
+" cscope
 "Use leader b for new tabs
 nnoremap <leader>b :tab cs find s <C-R>=expand("<cword>")<CR><CR>
 vnoremap <leader>b y:tab cs find s <C-r>"<CR>
 " Use Ctrl S to launch cs find s
-nnoremap <C-s> :cs find s <C-R>=expand("<cword>")<CR><CR>
-vnoremap <C-s> y:cs find s <C-r>"<CR>
+nnoremap <leader>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+vnoremap <leader>s y:cs find s <C-r>"<CR>
+" End Maps
 
 " Enable local vimrcs for local project options
 set exrc      " Enable reading of local .vimrc files
