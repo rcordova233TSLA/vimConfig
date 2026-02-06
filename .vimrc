@@ -31,6 +31,8 @@ Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'preservim/tagbar'
 Plug 'vim-airline/vim-airline' 
 Plug 'tpope/vim-fugitive'
+Plug 'bullets-vim/bullets.vim'
+Plug 'chrisbra/csv.vim'
 call plug#end()
 
 "Plugin settings
@@ -55,7 +57,9 @@ nmap <Leader>a <Plug>VimSumOperatorPending
 vmap <Leader>a <Plug>VimSumVisual
 " Taboo tab settings
 set sessionoptions+=tabpages,globals
-
+"Vim Bullets
+let g:bullets_outline_levels = ['num', 'std*']
+"End Plugin settings
 "Functions
 function! TrimTrailingWhiteSpace() abort
   " Save the current cursor position and view
@@ -118,3 +122,5 @@ set mouse=a
 " Macros
 let @q = 'i|j'
 
+" Whitespace detector: use set list to view all whitespace and returns
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
