@@ -9,7 +9,7 @@ endif
 set nowrap
 set cursorline
 " Sources
-source ./TagsCscope.vim
+source ~/vimConfig/TagsCscope.vim
 " Native plugins
 packloadall
 
