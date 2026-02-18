@@ -8,11 +8,8 @@ if !exists("g:syntax_on")
 endif
 set nowrap
 set cursorline
-" Tags and cscope
-set tags=./tags;,tags;
-set csre
-" Set cscope results to show up in quickfix
-set cscopequickfix=s-,c-,d-,i-,t-,e-,a-
+" Sources
+source ./TagsCscope.vim
 " Native plugins
 packloadall
 
@@ -144,13 +141,6 @@ vnoremap <C-c> "+y
 snoremap <C-c> "+y
 " Map ; to launch FZF file find"
 map ; :Files<CR>
-" cscope
-"Use leader b for new tabs
-nnoremap <leader>b :tab cs find s <C-R>=expand("<cword>")<CR><CR>
-vnoremap <leader>b y:tab cs find s <C-r>"<CR>
-" Use Ctrl S to launch cs find s
-nnoremap <leader>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-vnoremap <leader>s y:cs find s <C-r>"<CR>
 " End Maps
 
 " Enable local vimrcs for local project options
