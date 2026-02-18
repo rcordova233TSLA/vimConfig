@@ -10,38 +10,7 @@ set nowrap
 set cursorline
 " Sources
 source ~/vimConfig/TagsCscope.vim
-" Native plugins
-packloadall
-
-"vim plug
-call plug#begin()
-" List your plugins here
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'preservim/nerdtree'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'Valloric/YouCompleteMe'
-Plug 'https://github.com/aklt/plantuml-syntax'
-Plug 'https://github.com/tyru/open-browser.vim.git'
-Plug 'preservim/vim-markdown'
-Plug 'https://github.com/grepsuzette/vim-sum.git'
-Plug 'https://github.com/gcmt/taboo.vim.git'
-Plug 'https://github.com/jiangmiao/auto-pairs.git'
-Plug 'https://github.com/tpope/vim-surround.git'
-Plug 'https://github.com/tpope/vim-commentary.git' 
-Plug 'preservim/tagbar'
-Plug 'vim-airline/vim-airline' 
-Plug 'tpope/vim-fugitive'
-Plug 'bullets-vim/bullets.vim'
-Plug 'chrisbra/csv.vim'
-Plug 'SirVer/ultisnips'
-Plug 'tpope/vim-eunuch'
-" Collection of common snippets 
-Plug 'honza/vim-snippets'
-call plug#end()
-
-"Plugin settings
-
+source ~/vimConfig/Plugins.vim
 " Vim Airline
 " Turn off all extensions. 
 " There was slow down typing when in insert mode and ycm autocomplete
@@ -162,3 +131,6 @@ set mouse=a
 let @q = 'i|j'
 " Whitespace detector: use set list to view all whitespace and returns
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+
+" Quickfix window: open result in previous window
+autocmd FileType qf nnoremap <buffer> <CR> :exe 'wincmd p \| '. line('.'). 'cc'<CR>
