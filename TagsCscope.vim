@@ -1,5 +1,23 @@
 " This file should include all settings, maps, etc. related to cscope and ctags
 
+" Look for a local cscope file if it exists or a cscope environment var
+if has("cscope")
+    " Check if cscope.out exists in the current directory and add it
+    if filereadable("cscope.out")
+        cs add cscope.out
+    " Optionally, check an environment variable
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+    set cscopeverbose " Show messages when adding a database
+endif
+" Look for a local tags file if it exists or a tags environment var
+if filereadable("tags")
+    set tags+=./tags
+elseif $TAGS_DB != ""
+    set tags+=$TAGS_DB
+endif
+
 " Set cscope results to show up in quickfix window
 " This lets us copy results from the quickfix window
 set cscopequickfix=s-,c-,d-,i-,t-,e-,a-
