@@ -9,7 +9,6 @@ if has("cscope")
     elseif $CSCOPE_DB != ""
         cs add $CSCOPE_DB
     endif
-    set cscopeverbose " Show messages when adding a database
 endif
 " Look for a local tags file if it exists or a tags environment var
 if filereadable("tags")
