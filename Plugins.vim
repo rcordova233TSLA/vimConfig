@@ -23,6 +23,7 @@ Plug 'chrisbra/csv.vim'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-eunuch'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'dense-analysis/ale'
 " Collection of common snippets 
 Plug 'honza/vim-snippets'
 call plug#end()

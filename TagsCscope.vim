@@ -25,3 +25,5 @@ nnoremap <leader>b :tab cs find s <C-R>=expand("<cword>")<CR><CR>
 vnoremap <leader>b y:tab cs find s <C-r>"<CR>
 nnoremap <leader>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 vnoremap <leader>s y:cs find s <C-r>"<CR>
+" Prevent tags from slowing down <C-n> autocomplete
+set complete-=t
