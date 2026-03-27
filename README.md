@@ -1,5 +1,10 @@
 # vim
 vimrc with plugins, keymaps and other settings
+# Environment setup
+* Export an environment variable
+```
+export VIMINIT="~/vimConfig/.vimrc"
+```
 # Dependencies
 1. VimPlug
 ```
