@@ -9,3 +9,5 @@ echo "Installing vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo "Done installing vim-plug"
+# Setup local markdown docker
+# FZF setup

@@ -1,5 +1,8 @@
 " This is the list of all plugins that are being used
+
 " Vim-plug is the preferred manager currently
+" Use fold marker method. Commented means it's on
+" vim: set fdm=marker:
 call plug#begin()
 " List your plugins here
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -24,6 +27,16 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-eunuch'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'dense-analysis/ale'
-" Collection of common snippets 
-Plug 'honza/vim-snippets'
 call plug#end()
+
+"{{{ UltiSnips 
+" Collection of ultisnips for inspiration:
+" https://github.com/honza/vim-snippets/tree/master/UltiSnips
+let g:UltiSnipsSnippetDirectories=[$HOME."/vimConfig/Snippets/"]
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+inoremap <C-U> <Esc>:Snippets<CR>
+let g:UltiSnipsEditSplit="vertical"
+"}}}
+
