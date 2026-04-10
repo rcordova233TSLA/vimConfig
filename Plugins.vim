@@ -1,4 +1,4 @@
-source ./Common/Os.vim
+source ~/vimConfig/Common/Os.vim
 " Vim-plug is the preferred manager currently
 " Use fold marker method. Commented means it's on
 " vim: set fdm=marker:

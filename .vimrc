@@ -1,7 +1,7 @@
-source ./Plugins.vim
+source ~/vimConfig/Plugins.vim
 
-source ./Common/CommonMaps.vim
-source ./Common/Utilities.vim
+source ~/vimConfig/Common/CommonMaps.vim
+source ~/vimConfig/Common/Utilities.vim
 
 "{{{ General
 set nocompatible
