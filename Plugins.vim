@@ -26,6 +26,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'dense-analysis/ale'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'adelarsq/vim-pomodoro'
 call plug#end()
 
 "{{{ UltiSnips 
